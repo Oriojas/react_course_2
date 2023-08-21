@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
+import HolaMundo from './components/HolaMundo';
+import AdiosMundo from './components/AdiosMundo';
 
 function App() {
   return (
@@ -17,7 +19,9 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+        <HolaMundo></HolaMundo>
+        <AdiosMundo></AdiosMundo>
+      </header>      
     </div>
   );
 }
