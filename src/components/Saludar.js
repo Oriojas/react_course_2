@@ -1,14 +1,13 @@
 import React from "react";
 
 export default function Saludar(props) {
-  console.log(props.userInfo);
+  const { userInfo, saludarFn } = props; // información por destructurin
+  const { nombre = "Anónimo" } = userInfo;
+  const { edad = "Anónimo " } = userInfo;
 
   return (
     <div>
-      <h2>
-        Hola {props.userInfo.nombre}, tiene {props.userInfo.edad} años, su color
-        favorito es {props.userInfo.color}
-      </h2>
+      <button onClick={() => saludarFn(nombre, edad)}>Saludar</button>
     </div>
   );
 }
