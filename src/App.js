@@ -1,26 +1,29 @@
 import "./App.css";
-import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
+import Contacto from "./pages/Contacto";
+import QuienSoy from "./pages/QuienSoy";
 
 function App() {
-  const [stateCar, setStateCar] = useState(false);
-  const [contar, setContar] = useState(0);
-
-  useEffect(() => {
-    console.log("Total: " + contar);
-  }, [contar]);
-
-  const encenderApagar = () => {
-    //setStateCar(!stateCar);
-    setStateCar((prevValue) => !prevValue); // para enviar el valor de stateCar para otro componente
-    setContar(contar + 1);
-  };
-
   return (
     <div className="App">
       <h2>UserState</h2>
-      <h3>El carro esta: {stateCar ? "Encendido" : "Apagado"}</h3>
-      <h4>Clicks; {contar}</h4>
-      <button onClick={encenderApagar}>Encender / Apagar</button>
+      <Router>
+        <div>
+          <Link to="/">
+            <button>Home</button>
+          </Link>
+          <Link to="/Contacto">
+            <button>Contacto</button>
+          </Link>
+          <Link to="/QuienSoy">
+            <button>Quien Soy</button>
+          </Link>
+        </div>
+        <Routes>
+          <Route path="Contacto" element={<Contacto></Contacto>}></Route>
+          <Route path="QuienSoy" element={<QuienSoy></QuienSoy>}></Route>
+        </Routes>
+      </Router>
     </div>
   );
 }
